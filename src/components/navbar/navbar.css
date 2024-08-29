@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+nav
+{
+    position: fixed;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgb(75, 72, 73,0.5);
+    font-family: "Comic Neue", cursive;
+    font-size: 20px;
+    width: 100%;  
+}
+#sidebar a.active {
+    color: red;
+  }
+nav a{
+    text-decoration: none;
+    color: white;
+}
+nav a:hover{
+    color: rgb(142, 142, 246);
+}
+.toggle{
+    font-size: 55px;
+    display: none;
+}
+.logo img
+{
+    height: 100px;
+    width: 100px;
+}
+.menu
+{
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 20px;
+}
+.menu li{
+    padding: 15px 10px;
+}
+.mobmenu
+{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    list-style: none;
+    justify-content: space-around;
+}
+.searchbox input
+{
+    border-radius: 15px;
+    height: 25px;
+    padding-left: 10px;
+    border: 1px white;
+    font-family: "Comic Neue", cursive;
+}
+li button{
+    width: 100px;
+    border-radius: 15px;
+    height: 30px;
+    background-color: black;
+    font-family: "Comic Neue", cursive;
+}
+@media screen and (max-width: 800px) {
+    nav{
+        display: block;
+        position: relative;
+        padding: 15px 20px;
+    }
+    .menu{
+        display: none ;
+    }
+    .toggle{
+        display: flex;
+        flex-direction: row-reverse;
+        margin-top: -75px;
+        align-items: center;
+    }
+}

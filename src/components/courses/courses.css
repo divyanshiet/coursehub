@@ -1,0 +1,69 @@
+.courses
+{
+    width: 100%;
+    height: 70%;
+    overflow-y: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+    padding: 40px;
+    color: white;
+    background-color: rgb(25, 23, 23);
+}
+.headline
+{
+    font-size: 50px;
+    font-family: "Comic Neue", cursive;
+    font-weight: 500;
+}
+.headline span{
+   color: red;
+   font-weight: 700;
+}
+.no-scroll
+{
+    display: flex;
+    gap: 15px; 
+    width: 80%;
+    overflow-x: hidden;
+    border-radius: 15px;
+    padding: 30px;
+}
+.all-card
+{
+    display: flex;
+    gap: 15px; 
+    width: 80%;
+    overflow-x: scroll;
+    border-radius: 15px;
+    padding: 30px;
+}
+.search-bar input
+{
+    width: 700px;
+    height: 50px;
+    border-radius: 15px;
+    border: 3px solid red;
+}
+.search-bar input ::placeholder
+{
+    align-items: center;
+}
+.no-courses
+{
+    font-size: 80px;
+    color: red;
+    font-weight: 700;
+    margin-left: 20%;
+}
+@media (max-width:700px) {
+    .search-bar input{
+        width: 300px;
+    }
+    .headline
+    {
+        width: 300px;
+    }
+    
+}
