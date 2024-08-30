@@ -1,17 +1,20 @@
-import Navbar from "./components/navbar/Navbar";
-import Courses from "./components/courses/Courses";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Section1 from "./components/section1/Section1";
-
+import Home from "./components/home/Home";
+import Dashboard from "./components/dashboard/Dashboard";
+import ApiState from "./context/ApiState";
 
 const App = () => {
   return (
+    <>
+    <ApiState>
     <BrowserRouter>
-    <Navbar/>
-    <Section1/>
-    <Courses />
-    
-  </BrowserRouter>
+    <Routes>
+    <Route path="/" Component={Home}/>
+    <Route path="/dashboard/*" Component={Dashboard}/>
+    </Routes>
+    </BrowserRouter>
+    </ApiState>
+    </>
     
   );
 };

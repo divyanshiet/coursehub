@@ -1,5 +1,4 @@
-import headerimg from './headerimage.png'
-import { NavLink } from "react-router-dom";
+import headerimg from './headerimage.png';
 import './section1.css'
 
 export default function Section1()

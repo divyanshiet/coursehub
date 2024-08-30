@@ -7,21 +7,20 @@ import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
   const [active, setActive] = useState(true);
+
   return (
     <>
       <nav>
         <div className="logo">
-          <img src={logo}></img>
+          <img src={logo} alt="Logo" />
         </div>
         <div
           className="toggle"
-          onClick={() => {
-            setActive(!active);
-          }}
+          onClick={() => setActive(!active)}
         >
           {active ? <IoMenu /> : <AiOutlineClose />}
         </div>
-        <ul id="sidebar" className={active ? "menu" : "mobmenu"}>
+        <ul id="sidebar" className={active ? "menu" : "mobmenu active"}>
           <li>
             <NavLink
               to="/"
@@ -33,22 +32,29 @@ const Navbar = () => {
             </NavLink>
           </li>
           <li>
-            <a href="#">About us</a>
+            <a href="#about">About us</a>
           </li>
           <li>
             <a href="#course">Courses</a>
           </li>
           <li className="contact">
-            <a href="#">Contact us</a>
+            <a href="#contact">Contact us</a>
           </li>
           <li>
             <button>
-              <a href="#">Dashboard</a>
+              <NavLink
+                to="/dashboard"
+                className={({ isActive, isPending }) =>
+                  isPending ? "pending" : isActive ? "active" : ""
+                }
+              >
+                Dashboard
+              </NavLink>
             </button>
           </li>
           <li>
             <button>
-              <a href="#">Login/signup</a>
+              <a href="#login">Login/Signup</a>
             </button>
           </li>
         </ul>

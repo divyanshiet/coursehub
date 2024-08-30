@@ -1,86 +1,121 @@
 @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
-*{
-    margin: 0px;
-    padding: 0px;
+
+* {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
-nav
-{
+
+nav {
     position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    background-color: rgb(75, 72, 73,0.5);
+    background-color: rgba(75, 72, 73, 0.5);
     font-family: "Comic Neue", cursive;
     font-size: 20px;
-    width: 100%;  
+    z-index: 1000;
+    padding: 10px 20px;
 }
-#sidebar a.active {
-    color: red;
-  }
-nav a{
+
+nav a {
     text-decoration: none;
     color: white;
 }
-nav a:hover{
+
+nav a:hover {
     color: rgb(142, 142, 246);
 }
-.toggle{
-    font-size: 55px;
+
+.toggle {
+    font-size: 35px;
     display: none;
+    cursor: pointer;
+    color: white;
 }
-.logo img
-{
-    height: 100px;
-    width: 100px;
+
+.logo img {
+    height: 80px;
+    width: 80px;
 }
-.menu
-{
+
+.menu {
     display: flex;
     align-items: center;
     list-style: none;
     gap: 20px;
 }
-.menu li{
-    padding: 15px 10px;
+
+.menu li {
+    padding: 10px 15px;
 }
-.mobmenu
-{
-    display: flex;
+
+.mobmenu {
+    display: none;
     flex-direction: column;
     gap: 20px;
     align-items: center;
     list-style: none;
     justify-content: space-around;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: rgba(75, 72, 73, 0.9);
+    padding: 20px 0;
 }
-.searchbox input
-{
+
+.searchbox input {
     border-radius: 15px;
     height: 25px;
     padding-left: 10px;
-    border: 1px white;
+    border: 1px solid white;
     font-family: "Comic Neue", cursive;
 }
-li button{
+
+li button {
     width: 100px;
     border-radius: 15px;
     height: 30px;
     background-color: black;
     font-family: "Comic Neue", cursive;
+    color: white;
+    border: none;
 }
+
+li button:hover {
+    cursor: pointer;
+    background-color: #555;
+}
+
 @media screen and (max-width: 800px) {
-    nav{
+    nav {
+        padding: 10px 20px;
+    }
+
+    .menu {
+        display: none;
+    }
+
+    .toggle {
         display: block;
-        position: relative;
-        padding: 15px 20px;
     }
-    .menu{
-        display: none ;
-    }
-    .toggle{
+
+    .mobmenu.active {
         display: flex;
-        flex-direction: row-reverse;
-        margin-top: -75px;
-        align-items: center;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .logo img {
+        height: 40px;
+        width: 60px;
+    }
+
+    .menu li, .mobmenu li {
+        padding: 8px 10px;
     }
 }

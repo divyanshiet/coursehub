@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState} from "react";
+
 import Card from "../cards/Card";
 import image1 from "./react-native_large.png";
 import image2 from "./reactimg.png";
@@ -27,12 +28,13 @@ export default function Courses() {
   );
   const containerClass = filteredCourses.length > 0 ? "all-card" : "no-scroll";
 
+ 
 
   return (
     <>
       <div id="course" className="courses">
         <div className="headline">
-          What would you like to <span>Learn?</span>
+        What would you like to <span>Learn?</span>
         </div>
         <div className="search-bar">
           <input

@@ -1,0 +1,150 @@
+/* Import Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700");
+
+/* General Styles */
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.dash {
+    font-size: 30px;
+    font-weight: 700;
+    color: black;
+}
+
+.container {
+    display: flex;
+    font-family: "Poppins", sans-serif;
+    background: #dfe9f5;
+    min-height: 100vh;
+    flex-direction: row;
+}
+
+.container .nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+    height: 100vh;
+    background: #fff;
+    width: 260px;
+    overflow: hidden;
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+    transition: width 0.3s ease;
+}
+
+.container .nav a {
+    color: rgb(85, 83, 83);
+    font-size: 22px;
+    width: 100%;
+    padding: 10px;
+    text-decoration: none;
+    margin-left: 50px;
+}
+
+.link {
+    width: 100%;
+    background-color: rgb(40, 158, 255);
+    height: 30px;
+}
+
+.link:hover {
+    background: #eee;
+}
+
+/* Main Section */
+.main {
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    padding: 20px;
+    width: 100%;
+    height: auto;
+}
+
+/* Course Box Styles */
+.course-box {
+    display: flex;
+    gap: 15px;
+}
+
+.course-box a {
+    text-decoration: none;
+    padding: 8px;
+    border-radius: 15px;
+}
+
+/* Active Button Styles */
+.course-box a.active {
+    background-color: rgb(40, 158, 255);
+    color: white;
+}
+
+/* Default Active Style for Enrolled Button */
+.enrolled-btn a.active {
+    background-color: rgb(40, 158, 255);
+    color: white;
+}
+
+.course-content {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+    .container .nav {
+        width: auto;
+        height: 100px;
+        flex-direction: row;
+        gap: 15px;
+    }
+    .link {
+        width: 25%;
+        height: 20px;
+        border-radius: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        left: 10px;
+        padding-left: 7px;
+    }
+
+    .main {
+        padding: 10px;
+    }
+    .course-content {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    .dash {
+        font-size: 0px;
+    }
+    .container .nav a {
+        font-size: 15px;
+        text-decoration: none;
+        margin-left: 0px;
+        padding: 5px;
+
+    }
+    .link .log-out{
+        width: 50px;
+    }
+
+    .course-box a {
+        padding: 6px;
+    }
+
+    .course-content {
+        gap: 10px;
+    }
+}

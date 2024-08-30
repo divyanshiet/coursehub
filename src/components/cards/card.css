@@ -1,84 +1,127 @@
-.course-img img{
-    width: 340px;
-    height: 280px;
+.course-img img {
+    width: 100%; /* Make the image responsive */
+    height: auto; /* Maintain aspect ratio */
     border-radius: 15px;
-}
-.course-list
-{
+  }
+  
+  .course-list {
     display: flex;
     flex-direction: column;
     background-color: black;
     border-radius: 15px;
     align-items: center;
     padding: 13px;
-    width: 460px;
+    width: 100%; /* Make the card take full width */
     gap: 10px;
-}
-.expanded {
-    border-radius: 15px; 
+  }
+  
+  .expanded {
+    border-radius: 15px;
     padding: 15px;
     max-height: 1000px;
-    transform: scale(1.1);
-    background-color: rgb(170, 167, 167,0.5);
-}
-.expanded-details {
+    transform: scale(1.05); /* Slightly reduce scale on smaller screens */
+    background-color: rgba(170, 167, 167, 0.5);
+  }
+  
+  .expanded-details {
     width: 100%;
     margin-top: 20px;
     color: white;
-    font-size: 16px;
+    font-size: 14px; /* Reduce font size */
     text-align: left;
     transition: opacity 0.3s ease;
-}
-.expanded-details p strong {
-    
+  }
+  
+  .expanded-details p strong {
     color: black;
-}
-.yenroll{
+  }
+  
+  .yenroll {
     font-weight: 700;
     color: rgb(3, 255, 28);
-}
-.nenroll{
+  }
+  
+  .nenroll {
     font-weight: 700;
     color: red;
-}
-.name-enroll
-{
-    width: 340px;
+  }
+  
+  .name-enroll {
+    width: 100%; /* Adjust width to fit the container */
     display: flex;
     justify-content: space-between;
-    font-size: 20px;
+    font-size: 18px; /* Slightly reduce font size */
     font-weight: 500;
     color: red;
-}
-.enroll-status
-{
+  }
+  
+  .enroll-status {
     color: green;
-}
-.course-description
-{
-    width: 340px;
-    font-size: 16px;
-}
-.know-more
-{
-    width: 340px;
+  }
+  
+  .course-description {
+    width: 100%; /* Adjust width to fit the container */
+    font-size: 14px; /* Slightly reduce font size */
+  }
+  
+  .know-more {
+    width: 100%; /* Adjust width to fit the container */
     display: flex;
     justify-content: space-between;
     font-weight: 500;
     align-items: center;
-}
-.know-more button{
+  }
+  
+  .know-more button {
     border-radius: 10px;
-    height: 40px;
-    width: 100px;
-    font-size: 15px;
+    height: 35px; /* Reduce button height */
+    width: 90px; /* Reduce button width */
+    font-size: 14px; /* Slightly reduce font size */
     background-color: rgb(87, 243, 97);
     border: 1px solid rgb(87, 243, 97);
     font-weight: 600;
     color: white;
-}
-.instructor
-{
-    font-size: 20px;
+  }
+  
+  .instructor {
+    font-size: 18px; /* Slightly reduce font size */
     color: orange;
-}
+  }
+  
+  /* Media query for screens with a max-width of 480px */
+  @media (max-width: 480px) {
+    .course-list {
+      width: 100%; /* Full width for mobile screens */
+      padding: 10px; /* Adjust padding */
+      height: 280px;
+    }
+   .remaining
+   {
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+   }
+    .name-enroll {
+      font-size: 12px; /* Further reduce font size */
+    }
+  
+    .course-description {
+      font-size: 12px;
+      width: 200px; /* Adjust font size for description */
+    }
+  
+    .know-more button {
+      height: 25px; /* Further reduce button height */
+      width: 80px; /* Further reduce button width */
+      font-size: 12px; /* Adjust font size */
+    }
+  
+    .instructor {
+      font-size: 16px; /* Further reduce font size */
+    }
+  
+    .expanded-details {
+      font-size: 14px; /* Adjust font size for expanded details */
+    }
+  }
+  
