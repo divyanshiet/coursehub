@@ -1,8 +1,5 @@
 import logo from "./logo.png";
-import { useAuth0 } from "@auth0/auth0-react";
-import { useState } from "react";
-// import { IoMenu } from "react-icons/io5";
-// import { AiOutlineClose } from "react-icons/ai";
+import { useState, useEffect } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { RiCloseLargeLine } from "react-icons/ri";
 import "./navbar.css";
@@ -10,7 +7,20 @@ import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
   const [active, setActive] = useState(true);
-  const { loginWithRedirect ,isAuthenticated } = useAuth0();
+  const [isLoggedIn, setIsLoggedIn] = useState(
+    localStorage.getItem("isLoggedIn") === "true"
+  );
+
+  useEffect(() => {
+    const handleStorageChange = () => {
+      setIsLoggedIn(localStorage.getItem("isLoggedIn") === "true");
+    };
+    window.addEventListener("storage", handleStorageChange);
+
+    return () => {
+      window.removeEventListener("storage", handleStorageChange);
+    };
+  }, []);
 
   return (
     <>
@@ -18,10 +28,7 @@ const Navbar = () => {
         <div className="logo">
           <img src={logo} alt="Logo" />
         </div>
-        <div
-          className="toggle"
-          onClick={() => setActive(!active)}
-        >
+        <div className="toggle" onClick={() => setActive(!active)}>
           {active ? <GiHamburgerMenu /> : <RiCloseLargeLine />}
         </div>
         <ul id="sidebar" className={active ? "menu" : "mobmenu active"}>
@@ -44,25 +51,26 @@ const Navbar = () => {
           <li className="contact">
             <a href="#contact">Contact us</a>
           </li>
-          {isAuthenticated ?
-          <li>
-            <button>
-              <NavLink
-                to="/dashboard"
-                className={({ isActive, isPending }) =>
-                  isPending ? "pending" : isActive ? "active" : ""
-                }
-              >
-                Dashboard
-              </NavLink>
-            </button>
-          </li>
-          :
-          <li>
-            <button onClick={() => loginWithRedirect()}>Login/Signup
-
-            </button>
-          </li>}
+          {isLoggedIn ? (
+            <li>
+              <button>
+                <NavLink
+                  to="/dashboard"
+                  className={({ isActive, isPending }) =>
+                    isPending ? "pending" : isActive ? "active" : ""
+                  }
+                >
+                  Dashboard
+                </NavLink>
+              </button>
+            </li>
+          ) : (
+            <li>
+              <button>
+                <NavLink to="/login">Login/Signup</NavLink>
+              </button>
+            </li>
+          )}
         </ul>
       </nav>
     </>

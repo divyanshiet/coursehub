@@ -1,12 +1,19 @@
 import "./dashboard.css";
 import logo from "./logo.png";
-
-import { NavLink, Route, Routes, Navigate } from "react-router-dom";
+import { NavLink, Route, Routes, Navigate, useNavigate } from "react-router-dom";
 import Enrolled_cards from "../enrolled-cards/Enrolled_cards";
 import Completed from "../completed/Completed";
 
 export default function Dashboard() {
-  
+  const logedout = localStorage.getItem("isLoggedIn");
+  const navigate = useNavigate();
+
+  const loggedout = () => {
+    if (logedout === "true") {
+      localStorage.setItem("isLoggedIn", "false");
+      navigate("/"); // Redirect to home after logout
+    }
+  };
 
   return (
     <div className="container">
@@ -26,7 +33,7 @@ export default function Dashboard() {
           </NavLink>
         </div>
         <div className="link">
-          <a href="/" className="logout">
+          <a href="/" className="logout" onClick={loggedout}>
             Log out
           </a>
         </div>
@@ -47,7 +54,7 @@ export default function Dashboard() {
         </div>
         <div className="course-content">
           <Routes>
-          <Route path="/" element={<Navigate to="enrolled" />} />
+            <Route path="/" element={<Navigate to="enrolled" />} />
             <Route path="enrolled" element={<Enrolled_cards />} />
             <Route path="completed" element={<Completed />} />
           </Routes>

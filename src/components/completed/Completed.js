@@ -2,7 +2,7 @@ export default function Completed()
 {
     return(
         <>
-          <div>thise is completed </div>
+          <div>This is completed </div>
         </>
     )
     

@@ -1,12 +1,6 @@
-/* Import Google Fonts */
+
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700");
 
-/* General Styles */
-body {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
 .dash {
     font-size: 30px;
@@ -55,7 +49,6 @@ body {
     background: #eee;
 }
 
-/* Main Section */
 .main {
     display: flex;
     gap: 20px;
@@ -77,13 +70,11 @@ body {
     border-radius: 15px;
 }
 
-/* Active Button Styles */
 .course-box a.active {
     background-color: rgb(40, 158, 255);
     color: white;
 }
 
-/* Default Active Style for Enrolled Button */
 .enrolled-btn a.active {
     background-color: rgb(40, 158, 255);
     color: white;

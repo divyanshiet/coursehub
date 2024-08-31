@@ -1,17 +1,14 @@
-/* Image styles */
 .enrollcourse-list .course-img img {
-    width: 100%; /* Make the image responsive */
-    height: auto; /* Maintain aspect ratio */
+    width: 100%;
+    height: auto;
     border-radius: 15px;
 }
 
-/* Container for course details */
 .enroll-course {
     display: flex;
-    flex-direction: column; /* Default to column for better stacking on small screens */
+    flex-direction: column;
 }
 
-/* Styling for the list of enrolled courses */
 .enrollcourse-list {
     display: flex;
     flex-direction: column;
@@ -19,93 +16,83 @@
     border-radius: 15px;
     align-items: center;
     padding: 13px;
-    width: 100%; /* Make it responsive */
-    max-width: 380px; /* Set a max-width for larger screens */
-    margin: auto; /* Center the card */
+    width: 100%;
+    max-width: 380px;
+    margin: auto;
     gap: 12px;
 }
 
-/* Name of the course */
 .name-enroll {
-    width: 100%; /* Use full width */
-    font-size: 18px; /* Adjust font size for better readability on small screens */
+    width: 100%;
+    font-size: 18px;
     font-weight: 500;
     color: red;
-    text-align: center; /* Center text */
+    text-align: center;
 }
 
-/* Instructor's name or additional info */
 .know-more {
-    width: 100%; /* Use full width */
+    width: 100%;
     font-weight: 500;
-    font-size: 18px; /* Adjust font size */
+    font-size: 18px;
     color: orange;
-    text-align: center; /* Center text */
+    text-align: center;
 }
 
-/* Container for remaining information */
 .remaining {
-    margin-left: 0; /* Remove margin on smaller screens */
-    text-align: center; /* Center text */
+    margin-left: 0;
+    text-align: center;
 }
 
-/* Due date styling */
 .duedate {
     display: flex;
     color: wheat;
-    gap: 10px; /* Adjust gap for better spacing */
-    align-items: center; /* Center items */
+    gap: 10px;
+    align-items: center;
 }
 
-/* Date text styling */
 .date {
     color: white;
 }
 
-/* Progress bar and done button container */
 .bar-done {
     display: flex;
-    gap: 10px; /* Adjust gap */
-    align-items: center; /* Center items */
+    gap: 20px;
+    align-items: center;
 }
 
-/* Done button styling */
 .done-btn button {
-    width: 100%; /* Full width for better responsiveness */
-    max-width: 120px; /* Limit maximum width */
-    height: 40px; /* Increase height for better touch targets */
+    width: 120px;
+    height: 40px;
     border-radius: 15px;
     background-color: white;
     font-family: "Comic Neue", cursive;
-    font-size: 15px; /* Fix font-size property */
+    font-size: 15px;
     font-weight: 600;
     cursor: pointer;
-    border: none; /* Remove default border */
+    border: none;
 }
 
-/* Hover effect for button */
 .done-btn button:hover {
-    background-color: #f0f0f0; /* Light grey background on hover */
+    background-color: #f0f0f0;
 }
 
-/* Media query for smaller screens */
 @media (max-width: 600px) {
     .enroll-course {
-        flex-direction: column; /* Stack vertically */
+        flex-direction: column;
     }
     
     .enrollcourse-list {
-        width: 100%; /* Full width on small screens */
-        max-width: none; /* Remove max-width constraint */
-        margin: 0; /* Remove margin */
+        width: 100%;
+        max-width: none;
+        margin: 0;
+    }
+
+    .done-btn button {
+        width: 100%;
+        max-width: 120px;
     }
 
     .name-enroll, .know-more {
-        font-size: 16px; /* Adjust font size for smaller screens */
-    }
-
-    .bar-done {
-        gap: 20px; /* Adjust gap for better spacing on small screens */
+        font-size: 16px;
     }
 }
-
