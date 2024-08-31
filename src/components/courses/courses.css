@@ -50,6 +50,44 @@
   font-weight: 700;
   margin-left: 20%;
 }
+/* Card component styles */
+
+.prerequisites {
+  margin-top: 10px;
+  font-size: 16px;
+  color: black;
+}
+
+.prerequisites ul {
+  margin-left: 20px;
+  list-style-type: disc;
+}
+
+.syllabus {
+  margin-top: 10px;
+  font-size: 16px;
+  display: flex;
+  gap: 15px;
+  color: black;
+}
+
+.syllabus-week {
+  margin-top: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.syllabus-title {
+  color: red;
+}
+
+.syllabus-content {
+  margin-left: 20px;
+  margin-top: 5px;
+  font-size: 14px;
+  color: #333;
+}
+
 @media (max-width: 700px) {
   .search-bar input {
     width: 300px;

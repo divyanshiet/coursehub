@@ -19,6 +19,8 @@ nav {
     font-size: 20px;
     z-index: 1000;
     padding: 10px 20px;
+    background: transparent;
+  backdrop-filter: blur(10px);
 }
 
 nav a {
@@ -106,6 +108,7 @@ li button:hover {
 
     .mobmenu.active {
         display: flex;
+        gap: 15px;
     }
 }
 
@@ -117,5 +120,9 @@ li button:hover {
 
     .menu li, .mobmenu li {
         padding: 8px 10px;
+    }
+    .mobmenu.active {
+        display: flex;
+        gap: 0px;
     }
 }

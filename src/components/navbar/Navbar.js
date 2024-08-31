@@ -2,6 +2,8 @@ import logo from "./logo.png";
 import { useState } from "react";
 // import { IoMenu } from "react-icons/io5";
 // import { AiOutlineClose } from "react-icons/ai";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { RiCloseLargeLine } from "react-icons/ri";
 import "./navbar.css";
 import { NavLink } from "react-router-dom";
 
@@ -18,7 +20,7 @@ const Navbar = () => {
           className="toggle"
           onClick={() => setActive(!active)}
         >
-          {active ? "ok" : "done"}
+          {active ? <GiHamburgerMenu /> : <RiCloseLargeLine />}
         </div>
         <ul id="sidebar" className={active ? "menu" : "mobmenu active"}>
           <li>

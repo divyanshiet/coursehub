@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import ApiContext from "./apiContext";
 
 export default function ApiState(props) {
-  const API = "http://localhost:5000/courses";
+  const API = "https://coursehubapi.vercel.app/courses";
   const [data,setData]= useState(null);
 
   async function getData(API) {
