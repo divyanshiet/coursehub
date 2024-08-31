@@ -1,4 +1,5 @@
 import logo from "./logo.png";
+import { useAuth0 } from "@auth0/auth0-react";
 import { useState } from "react";
 // import { IoMenu } from "react-icons/io5";
 // import { AiOutlineClose } from "react-icons/ai";
@@ -9,6 +10,7 @@ import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
   const [active, setActive] = useState(true);
+  const { loginWithRedirect ,isAuthenticated } = useAuth0();
 
   return (
     <>
@@ -42,6 +44,7 @@ const Navbar = () => {
           <li className="contact">
             <a href="#contact">Contact us</a>
           </li>
+          {isAuthenticated ?
           <li>
             <button>
               <NavLink
@@ -54,11 +57,12 @@ const Navbar = () => {
               </NavLink>
             </button>
           </li>
+          :
           <li>
-            <button>
-              <a href="#login">Login/Signup</a>
+            <button onClick={() => loginWithRedirect()}>Login/Signup
+
             </button>
-          </li>
+          </li>}
         </ul>
       </nav>
     </>
