@@ -13,50 +13,7 @@
   padding: 13px;
   width: 460px;
   gap: 10px;
-}
-
-.expanded {
-  border-radius: 15px;
-  padding: 15px;
-  max-height: 1000px;
-  transform: scale(1.1);
-  background-color: rgba(170, 167, 167, 0.5);
-}
-
-.expanded-details {
-  width: 100%;
-  margin-top: 20px;
-  color: white;
-  font-size: 16px;
-  text-align: left;
-  transition: opacity 0.3s ease;
-}
-
-.expanded-details p strong {
-  color: black;
-}
-
-.yenroll {
-  font-weight: 700;
-  color: rgb(3, 255, 28);
-}
-
-.nenroll {
-  font-weight: 700;
-  color: red;
-}
-
-.name-enroll {
-  width: 340px;
-  display: flex;
-  justify-content: space-between;
-  font-size: 20px;
-  font-weight: 500;
-  color: red;
-}
-
-.enroll-status {
-  color: green;
+  z-index: 100;
 }
 
 .course-description {
@@ -132,10 +89,6 @@
 
   .instructor {
     font-size: 16px;
-  }
-
-  .expanded-details {
-    font-size: 14px;
   }
 
   .course-name {

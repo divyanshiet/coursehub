@@ -1,99 +1,48 @@
 import React, { useState, useContext } from "react";
 import apiContext from "../../context/apiContext";
 import "./card.css";
+import Modal from "../../modal/Modal";
 
-export default function Card(props) {
+export default function Card({ number, image }) {
   const [isExpanded, setIsExpanded] = useState(false);
-  const [isSyllabusExpanded, setIsSyllabusExpanded] = useState(false);
-  const [showhidesyllabus, setIsshowhidesyllabus] = useState("Click to Expand");
   const { data } = useContext(apiContext);
 
-  if (!data) {
+  if (!data || !data[number]) {
     return <div>Loading...</div>;
   }
 
-  const toggleExpand = () => {
-    setIsExpanded(!isExpanded);
-  };
-
-  const toggleSyllabusExpand = () => {
-    setIsSyllabusExpanded(!isSyllabusExpanded);
-    if (showhidesyllabus === "Click to Expand") {
-      setIsshowhidesyllabus("Click to show less");
-    } else {
-      setIsshowhidesyllabus("Click to Expand");
-    }
-  };
+  const courseData = data[number];
 
   return (
     <>
-      <div className={isExpanded ? "expanded" : "course-list"}>
+      {/* Show Modal when expanded */}
+      {isExpanded && (
+        <Modal courseId={courseData.id} courseData={courseData} onClose={() => setIsExpanded(false)} />
+      )}
+
+      <div className="course-list">
         <div className="course-img">
-          <img src={props.image} alt={data[props.number].name} />
+          <img src={image} alt={courseData?.name || "Course"} />
         </div>
+
         <div className="remaining">
           <div className="name-enroll">
-            <div className="course-name">{data[props.number].name}</div>
-            <div
-              className={
-                data[props.number].enrollmentStatus === "Open"
-                  ? "yenroll"
-                  : "nenroll"
-              }
-            >
-              {data[props.number].enrollmentStatus}
+            <div className="course-name">{courseData?.name}</div>
+            <div className={courseData?.enrollmentStatus === "Open" ? "yenroll" : "nenroll"}>
+              {courseData?.enrollmentStatus}
             </div>
           </div>
+
           <div className="course-description">
-            {data[props.number].description}
+            {courseData?.description}
           </div>
+
           <div className="know-more">
-            <div className="instructor">{data[props.number].instructor}</div>
+            <div className="instructor">{courseData?.instructor}</div>
             <div className="know-btn">
-              <button onClick={toggleExpand}>
-                {isExpanded ? "Show Less" : "Show More"}
-              </button>
+              <button onClick={() => setIsExpanded(true)}>Know More</button>
             </div>
           </div>
-          {isExpanded && (
-            <div className="expanded-details">
-              <p>
-                <strong>Duration:</strong> {data[props.number].duration}
-              </p>
-              <p>
-                <strong>Schedule:</strong> {data[props.number].schedule}
-              </p>
-              <p>
-                <strong>Location:</strong> {data[props.number].location}
-              </p>
-              <div className="prerequisites">
-                <strong>Prerequisites:</strong>
-                <ul>
-                  {data[props.number].prerequisites.map((item, index) => (
-                    <li key={index}>{item}</li>
-                  ))}
-                </ul>
-              </div>
-              <div className="syllabus">
-                <strong>Syllabus:</strong>
-                <div className="syllabus-title" onClick={toggleSyllabusExpand}>
-                  {showhidesyllabus}
-                </div>
-                {isSyllabusExpanded && (
-                  <div className="syllabus-content">
-                    {data[props.number].syllabus.map((week, index) => (
-                      <div key={index}>
-                        <p>
-                          <strong>Week {week.week}:</strong> {week.topic}
-                        </p>
-                        <p>{week.content}</p>
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </div>
-            </div>
-          )}
         </div>
       </div>
     </>
