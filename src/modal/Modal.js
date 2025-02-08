@@ -1,5 +1,6 @@
-import React, { useState, useContext } from "react";
-import apiContext from "../context/apiContext";
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchData } from '../redux/slice';
 import {
   BookOpen,
   User,
@@ -17,20 +18,34 @@ import "./modal.css";
 
 function Modal({ courseId, onClose }) {
   const [isSyllabusOpen, setIsSyllabusOpen] = useState(false);
-  const { data } = useContext(apiContext);
+  const dispatch = useDispatch();
+  const { data, loading, error } = useSelector((state) => state.user);
+
+  useEffect(() => {
+    if (!data) {
+      dispatch(fetchData());
+    }
+  }, [dispatch, data]);
+
   const courseData = data?.find((course) => course.id === courseId);
-  if (!courseData) {
+  console.log(courseData);
+
+  if (loading) {
     return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
+
+  if (!courseData) {
+    return <div>No course data found.</div>;
   }
 
   return (
     <div className="modal-overlay">
       <div className="modal-container">
         <div className="modal-card">
-          <button className="close-btn" onClick={onClose}>
-            <X size={24} />
-          </button>
-          
           <div className="header">
             <div className="header-content">
               <h1>{courseData.name}</h1>
@@ -108,6 +123,9 @@ function Modal({ courseId, onClose }) {
           </div>
         </div>
       </div>
+      <button className="close-btn" onClick={onClose}>
+        <X size={24} />
+      </button>
     </div>
   );
 }

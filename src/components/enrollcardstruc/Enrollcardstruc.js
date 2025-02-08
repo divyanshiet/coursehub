@@ -1,12 +1,24 @@
-import React, { useContext } from "react";
-import apiContext from "../../context/apiContext";
+
+import React, { useEffect, useState } from "react";
 import "./enrollcardstruct.css";
 
-export default function Enrollcardstruc(props) {
-  const { data } = useContext(apiContext);
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchData } from '../../redux/slice';
 
-  if (!data) {
+export default function Enrollcardstruc(props) {
+  const [completed, setCompleted] = useState(false);
+   const dispatch = useDispatch();
+      const { data, loading, error } = useSelector((state) => state.user);
+  
+      useEffect(() => {
+          dispatch(fetchData());
+      }, [dispatch]);
+
+  if (loading) {
     return <div>Loading...</div>;
+  }
+  else if (error) {
+    return <div>Error: {error}</div>;
   }
 
   return (
@@ -27,7 +39,7 @@ export default function Enrollcardstruc(props) {
               <progress value={75} max={100} />
             </div>
             <div className="done-btn">
-              <button>Mark completed</button>
+              <button onClick={()=>setCompleted(completed)} courseId = {props.number}  >Mark completed</button>
             </div>
           </div>
         </div>

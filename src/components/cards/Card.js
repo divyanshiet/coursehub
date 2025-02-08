@@ -1,14 +1,21 @@
-import React, { useState, useContext } from "react";
-import apiContext from "../../context/apiContext";
+import React, { useState,useEffect } from "react";
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchData } from '../../redux/slice';
 import "./card.css";
 import Modal from "../../modal/Modal";
 
 export default function Card({ number, image }) {
   const [isExpanded, setIsExpanded] = useState(false);
-  const { data } = useContext(apiContext);
+  const dispatch = useDispatch();
+    const { data, loading,error} = useSelector((state) => state.user);
 
-  if (!data || !data[number]) {
+    useEffect(() => {
+        dispatch(fetchData());
+    }, [dispatch]);
+  if (loading) {
     return <div>Loading...</div>;
+  } else if (error) {
+    return <div>Error: {error}</div>;
   }
 
   const courseData = data[number];
