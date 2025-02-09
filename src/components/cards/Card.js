@@ -14,8 +14,6 @@ export default function Card({ number, image }) {
     }, [dispatch]);
   if (loading) {
     return <div>Loading...</div>;
-  } else if (error) {
-    return <div>Error: {error}</div>;
   }
 
   const courseData = data[number];
